@@ -1,1 +1,70 @@
-321
+- Sniffers present themselves at Layer 2 (frame) and Layer 3 (packet) of the OSI model 
+
+- OSI model recap
+    - APST(ND)P : sniffing happens at Network and Data layer
+    
+- Sniffers work by  capturing packets not destined for the sniffers system MAC address (promiscuous mode)
+
+- Normally, systems only read and respond to traffic directed to it, but in promiscuous mode, the NIC reads all traffic
+
+- Any protocols that don't support encryption can be sniffed: HTTP, POP3, SNMP, FTP
+
+- Passive and Active Sniffing
+    - Passive sniffing listens and captures traffic. Useful against a hub
+    - Active sniffing launches an ARP spoofing and traffic-flooding attack against a switch
+    
+- Networks that are hubs or wireless, all hosts can see all traffic.
+
+- Switched networks send traffic to the specific recipient only, thus it's more secure
+
+- Another way to sniff traffic is through a span port, or port mirroring to duplicate all data on a physical switch port to another port
+
+- Sniffing Counter Measures
+    - Encryption prevents the data from being readable
+
+- ARP
+    - ARP allows the network to translate IP addresses to MAC addresses
+    - When a host wants to talk to another machine, it needs it's MAC address
+    - The switch first checks it's ARP cache if it has the machine's MAC address
+    - If the switch does not, it does an ARP broadcast asking "who has this IP address"
+    - When the machine with that IP address gets the broadcast, it replies with it's MAC address
+    
+- ARP poisoning
+    - ARP poisoning uses ARP spoofing to send fake/spoofed ARP messages
+    - The spoofed ARP message sends the attacker's MAC address, binding it to the legitimate IP address
+    - All traffic will thus be sent to the attackers MAC address
+    
+- ARP Spoofing / Poisoning Countermeasures
+    - To prevent ARP spoofing, permanently add the MAC address of the gateway to the ARP cache on a system
+    - Doing so prevents a hacker from overwriting the ARP cache to perform ARP spoofing on the system but can be difficult to manage in a large environment because of the number of systems
+    - Port-based security can be enabled on a switch to allow only one MAC address per switch port
+    
+- MAC Flooding and DNS Spoofing
+    - MAC flooding floods the switch with so much traffic that it acts as a hub
+    - DNS Poisoning changes the IP address in the DNS server
+    - When a user requests for a URL, it redirects them to a malicous website instead
+    - DNS server must validate DNS responses to ensure they come from authoritive sources
+    
+- Types of DNS spoofing
+    - Intranet Spoofing
+    - Internet Spoofing
+    - Proxy Server DNS Poiosoning
+    - DNS Cache Poisoning
+  
+# Essentials
+
+- Understand how sniffing works and promiscuous mode
+
+- Understand hubs and switches
+
+- Packets vs Frames
+
+- Understand how ARP works
+
+- ARP poisoning, DNS poisoning
+
+# Exam
+
+- MAC information is added on layer 2
+
+- (1)Physical, (2)Frames, (3)Packets
